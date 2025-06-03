@@ -1,0 +1,3 @@
+[submodule "G-Retriever"]
+	path = G-Retriever
+	url = https://github.com/XiaoxinHe/G-Retriever.git
