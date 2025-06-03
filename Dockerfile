@@ -29,6 +29,13 @@ COPY environment.yml .
 # Conda環境を作成（ymlのname通り graphrag_env が作られる）
 RUN conda env create -f environment.yml
 
+RUN conda run -n graphrag_env pip install \
+    torch_scatter \
+    torch_sparse \
+    torch_cluster \
+    torch_spline_conv \
+    -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
+    
 # Conda環境有効化用（シェル切り替え）
 SHELL ["conda", "run", "-n", "graphrag_env", "/bin/bash", "-c"]
 

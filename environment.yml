@@ -2,16 +2,28 @@ name: graphrag_env
 channels:
   - defaults
   - conda-forge
+  - pytorch
 dependencies:
-  - python=3.10        # 安定した長期サポートバージョン
-  - pytorch           # Deep Learningライブラリ（torch+cuda版はDockerfile側で入れる場合あり）
+  - python=3.10
+  - pytorch>=2.1.0,<2.2.0 # PyGのCPUホイールURLとバージョンを合わせるため、>=2.1.0系統を指定
   - torchvision
   - torchaudio
-  - transformers      # LLMモデル利用のため（HuggingFace transformers）
-  - scikit-learn      # 学習器（回帰・分類モデル）用
-  - networkx          # グラフ操作用
+  - transformers
+  - scikit-learn
+  - networkx
   - pybind11
+  - scipy=1.12         
+  - protobuf           
   - pip
   - pip:
-      - sentence-transformers  # embedding類似度計算用
-      - torch-geometric
+    - sentence-transformers
+    - torch-geometric
+    - peft               
+    - pandas             
+    - ogb                
+    - wandb              
+    - sentencepiece      
+    - pcst_fast          
+    - gensim             
+    - datasets           
+    - pyg_lib            
