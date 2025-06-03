@@ -33,3 +33,4 @@ data/
 *.pkl
 *.log
 *.pid
+.DS_Store
