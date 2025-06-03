@@ -1,0 +1,24 @@
+# Transformers and NLP utilities
+transformers
+sentence-transformers
+sentencepiece
+peft
+datasets
+gensim
+
+# Scientific computing
+scikit-learn
+networkx
+scipy==1.12
+protobuf
+pybind11
+pcst_fast
+
+# Data handling & visualization
+pandas
+wandb
+
+# Graph libraries except PyG CUDA wheel (installed separately in Dockerfile)
+torch-geometric
+pyg-lib
+ogb

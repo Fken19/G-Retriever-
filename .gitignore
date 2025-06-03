@@ -21,16 +21,32 @@ var/
 *.egg
 *.manifest
 *.spec
-.ipynb_checkpoints
+.ipynb_checkpoints/
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
+
+# 大容量データ・中間ファイル
 data/
+logs/
+results/
+output/
 *.pt
 *.h5
 *.ckpt
 *.pkl
 *.log
 *.pid
-.DS_Store
+*.bin
+*.safetensors
+
+# Docker・環境関連
+docker-compose.override.yml
+.env
+
+# 個人用スクリプト
+*_local*.sh
+
+# サブモジュール一時変更検知回避（必要に応じて）
+G-Retriever/.git

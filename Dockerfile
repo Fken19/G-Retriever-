@@ -1,10 +1,10 @@
-# ベースイメージ：Miniconda搭載のUbuntuベース
-FROM continuumio/miniconda3
+# CUDA対応PyTorch公式イメージをベースに使用（Miniconda不要）
+FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
 
 # 環境変数：インストール時の対話を回避
 ENV DEBIAN_FRONTEND=noninteractive
 
-# 必要なビルドツール・ライブラリをインストール
+# 必要な追加ライブラリをインストール
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
@@ -23,22 +23,21 @@ RUN apt-get update && apt-get install -y \
 # 作業ディレクトリを作成
 WORKDIR /app
 
-# Conda環境定義をコピー
-COPY environment.yml .
+# Pythonパッケージ requirements をコピー
+COPY requirements.txt .
 
-# Conda環境を作成（ymlのname通り graphrag_env が作られる）
-RUN conda env create -f environment.yml
+RUN pip install --upgrade pip
 
-RUN conda run -n graphrag_env pip install \
-    torch_scatter \
-    torch_sparse \
-    torch_cluster \
-    torch_spline_conv \
-    -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
-    
-# Conda環境有効化用（シェル切り替え）
-SHELL ["conda", "run", "-n", "graphrag_env", "/bin/bash", "-c"]
+# ✅ GPU版torch-geometricのインストール（PyTorch + CUDA11.8対応）
+RUN pip install \
+    torch-scatter \
+    torch-sparse \
+    torch-cluster \
+    torch-spline-conv \
+    -f https://data.pyg.org/whl/torch-2.1.0+cu118.html
 
+# その他のPythonパッケージをインストール
+RUN pip install -r requirements.txt
 
 # プロジェクトソースコードをコピー
 COPY ./src /app/src

@@ -105,3 +105,44 @@ benchmarkデータを用意し、質問を入力して中間サブグラフを�
 単なる質問文比較よりも正確な知識比較が可能になる可能性がある。
 
 ---
+
+
+
+## 実験について
+
+
+---
+
+## ⚙️ 環境セットアップ（概要）
+
+1. サブモジュール初期化：
+   git submodule update --init --recursive
+
+2. Dockerビルド：
+   docker build -t graphrag-image .
+
+3. Docker実行：
+   docker run -it --name graphrag-container -v ~/Projects/graphrag-research:/app graphrag-image bash
+
+4. Conda環境起動：
+   conda activate graphrag_env
+
+---
+
+## 🚧 現在の進行状況（2025年6月3日）
+
+- Docker + Conda 環境構築完了。
+- G-Retriever公式コードをGitHubサブモジュール管理中。
+- Llama 2モデルのダウンロード・動作確認準備中。
+- inference.py・train.pyを用いた小規模テストの準備中。
+- GitHubにはDockerfile, environment.ymlなど更新内容をpush済み。
+
+---
+
+## 📅 TODO・今後の作業予定
+
+- [ ] Llama 2推論環境の動作確認。
+- [ ] inference.pyの出力確認・ログ整備。
+- [ ] train.pyの小規模実験設計。
+- [ ] 質・量の指標算出スクリプトの開発。
+- [ ] 統合スコアモデルの設計。
