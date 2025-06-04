@@ -54,3 +54,4 @@ wandb/
 *.pt
 *.bin
 *.safetensors
+Llama-2-7b-chat-hf/
