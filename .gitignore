@@ -49,4 +49,8 @@ docker-compose.override.yml
 *_local*.sh
 
 # サブモジュール一時変更検知回避（必要に応じて）
-G-Retriever/.git
+G-Retriever/.gitLlama-2-7b-chat-hf/
+wandb/
+*.pt
+*.bin
+*.safetensors
