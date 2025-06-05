@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 __pycache__/
 *.py[cod]
 *.class
@@ -11,6 +12,21 @@ dist/
 downloads/
 eggs/
 .eggs/
+=======
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+>>>>>>> 315b0ff8a206536067602fb97e77c10f4d646d5d
 lib/
 lib64/
 parts/
@@ -19,6 +35,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+<<<<<<< HEAD
 *.manifest
 *.spec
 .ipynb_checkpoints/
@@ -54,4 +71,54 @@ wandb/
 *.pt
 *.bin
 *.safetensors
-Llama-2-7b-chat-hf/
+=======
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Output
+*.out
+*.txt
+
+# Sphinx documentation
+docs/_build/
+
+# dataset
+#dataset/
+dataset/**/[0-9]*.csv
+dataset/**/*.pt
+dataset/gqa/val_sceneGraphs.json
+dataset/gqa/train_sceneGraphs.json
+
+# logs and results
+logs/
+output/
+
+# wandb
+wandb/
+
+.vscode/
+>>>>>>> 315b0ff8a206536067602fb97e77c10f4d646d5d
